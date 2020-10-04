@@ -3,12 +3,14 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const todoSearch = document.querySelector('.todo-search');
 
 //Event Listeners
 
 document.addEventListener('DOMContentLoaded', getTodos);
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteTodo);
+todoSearch.addEventListener('input', filter);
 
 //Functions
 
@@ -115,4 +117,23 @@ function getTodos() {
 		//attach final Todo
 		todoList.appendChild(todoDiv);
 	});
+}
+
+function filter(e) {
+	search = todoSearch.value.toLowerCase();
+	const todos = todoList.childNodes;
+	todos.forEach(function(todo) {
+		text = todo.childNodes[0].innerHTML;
+	});
+	// listItems.forEach(function(li) {
+	// 	text = li.innerHTML.toLowerCase();
+	// 	found = text.indexOf();
+	// 	if (search == '') {
+	// 		li.style.display = 'block';
+	// 	} else if (found == -1) {
+	// 		li.style.display = 'none';
+	// 	} else {
+	// 		li.style.display = 'block';
+	// 	}
+	// });
 }
