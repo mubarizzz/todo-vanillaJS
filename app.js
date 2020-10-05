@@ -122,18 +122,20 @@ function getTodos() {
 function filter(e) {
 	search = todoSearch.value.toLowerCase();
 	const todos = todoList.childNodes;
-	todos.forEach(function(todo) {
-		text = todo.childNodes[0].innerHTML;
-	});
-	// listItems.forEach(function(li) {
-	// 	text = li.innerHTML.toLowerCase();
-	// 	found = text.indexOf();
-	// 	if (search == '') {
-	// 		li.style.display = 'block';
-	// 	} else if (found == -1) {
-	// 		li.style.display = 'none';
-	// 	} else {
-	// 		li.style.display = 'block';
-	// 	}
+	// todos.forEach(function(todo) {
+	// 	// let text = todo.childNodes[0].innerHTML;
+	// 	console.log(todo.childNodes[0].innerHTML);
 	// });
+
+	todos.forEach(function(todo) {
+		let text = todo.childNodes[0].innerHTML.toLowerCase();
+		found = text.indexOf(search);
+		if (search == '') {
+			todo.style.display = 'flex';
+		} else if (found == -1) {
+			todo.style.display = 'none';
+		} else {
+			todo.style.display = 'flex';
+		}
+	});
 }
